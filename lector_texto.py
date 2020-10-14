@@ -2,14 +2,14 @@
 import time
 from tabulate import tabulate
 
-file1 = open("Texto_ejemplo.txt", "r")  # Abre el txt para ser leído
 d = dict()  # Crea un diccionario vacío
 table = []  # Se crea una lista para meter los resultados de los keys
-start = time.time()
 
 
-def words_frequency(file):
-    for line in file:
+def frecuencia_palabras(filepath):
+    file1 = open(filepath, "r")  # Abre el txt para ser leído
+    start = time.time()
+    for line in file1:
         line = line.strip().lower()  # Borra cualquier espacio en blanco y mayúscula
         line = line.replace("_", " ")  # Borra el _ que separa las palabras
         words = line.split(" ")  # Divide la línea en palabras
@@ -20,18 +20,13 @@ def words_frequency(file):
             else:
                 d[word] = 1  # Si no está, agrega la palabra y el #1 al diccionario
 
-
-words_frequency(file1)
-file2 = open("Resultados.txt", "w")  # Se abre el txt de resultados para escribir dentro de él
-
-
-def result_writing(file):
+    file2 = open("Resultados.txt", "w")  # Se abre el txt de resultados para escribir dentro de él
     for key in list(d.keys()):  # El key accede a los elementos y su cantidad en el diccionario creado
         table.append(tuple((key, d[key])))  # Ingresa cada palabra y su cantidad a la lista
     # Los resultados se escriben en el archivo de texto de resultados
-    file.write(tabulate(table, headers=["Palabra", "Cantidad"]))  # Con tabulate se crea una tabla con la lista table
+    file2.write(tabulate(table, headers=["Palabra", "Cantidad"]))  # Con tabulate se crea una tabla con la lista table
+    file2.close()  # Se cierra el txt de los resultados
+    end = time.time()
 
 
-result_writing(file2)
-file2.close()  # Se cierra el txt de los resultados
-end = time.time()
+frecuencia_palabras("Texto_ejemplo.txt")
