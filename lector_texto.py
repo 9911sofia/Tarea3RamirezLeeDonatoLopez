@@ -1,4 +1,7 @@
 # Se debe instalar tabulate para correr este programa. Puede ser con pip install tabulate
+
+
+import argparse
 import time
 from tabulate import tabulate
 
@@ -27,6 +30,25 @@ def frecuencia_palabras(filepath):
     file2.write(tabulate(table, headers=["Palabra", "Cantidad"]))  # Con tabulate se crea una tabla con la lista table
     file2.close()  # Se cierra el txt de los resultados
     end = time.time()
+    resul = end - start
+    return resul
 
 
-frecuencia_palabras("Texto_ejemplo.txt")
+
+parser = argparse.ArgumentParser(description='Analizador de texto.')
+
+parser.add_argument('FILEPATH', type=str, help='Dirección del archivo a analizar.')
+parser.add_argument('-t', '--time', action='store_true', help='Bandera para mostrar el tiempo de ejecución.')
+
+
+args = parser.parse_args()
+tiempo = args.time
+
+if __name__ == '__main__':
+    if tiempo:
+        print('El tiempo de ejecucion es: ', frecuencia_palabras(args.FILEPATH))
+    else:
+        frecuencia_palabras(FILEPATH)
+
+
+# frecuencia_palabras("Texto_ejemplo.txt")
