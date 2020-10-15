@@ -14,13 +14,15 @@ setup(
 
     name='Tarea3RamirezLeeDonatoLopez',  # Nombre del proyecto
 
-    version='1.0',  # Required
+    version='1.0.0',  # Required
 
     url='https://github.com/9911sofia/Tarea3RamirezLeeDonatoLopez',  # Enlace al proyecto
 
     author='RamirezLeeDonatoLopez',
 
-    packages=find_packages(where='src'),  # Encuentra los paquetes necesarior
+    # package_dir={'': 'src'},  # especifica el directorio de los paquetes
+
+    packages=find_packages(where='src'),  # Encuentra los paquetes necesarios
 
     install_requires=['Pillow', 'tabulate', 'playsound'],  # Instala las librerias necesarias
 
