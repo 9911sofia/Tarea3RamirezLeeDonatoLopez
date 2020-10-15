@@ -20,20 +20,18 @@ setup(
 
     author='RamirezLeeDonatoLopez',
 
-    packages=find_packages(where='src'),  # Required
+    packages=find_packages(where='src'),  # Encuentra los paquetes necesarior
 
-    py_modules=["Presentador_de_imágenes", "lector_texto", "presentador_de_audio"],
+    install_requires=['Pillow', 'tabulate', 'playsound'],  # Instala las librerias necesarias
 
-    install_requires=['Pillow', 'tabulate', 'playsound'],
-
-    python_requires='~=3.3',
+    python_requires='~=3.3',  # Versión de Python compatible
 
 
-    # package_data={  # Optional
+    # package_data={  # No se si se ocupa
     #     'sample': ['package_data.dat'],
     # },
 
-    entry_points={  # Optional
+    entry_points={  # Llama a los scripts del proyecto
         'console_scripts': [
             'texto=sample:lector_texto',
             'audio=sample:presentador_de_audio',
