@@ -25,14 +25,13 @@ setup(
         'img': ['meca.jpg'],
     },
     
-    scripts=['scripts/lector_texto', 'scripts/presentador_de_audio', 'scripts/Presentador_de_imágenes']
     
-    # entry_points={  # Llama a los scripts del proyecto
-    #     'console_scripts': [
-    #         'texto=texto:lector_texto',
-    #         'audio=audio:presentador_de_audio',
-    #         'imagen=imagen:Presentador_de_imágenes',
-    #     ],
-    # },
+    entry_points={  # Llama a los scripts del proyecto
+        'console_scripts': [
+            'texto=texto:lector_texto',
+            'audio=audio:presentador_de_audio',
+            'imagen=imagen:Presentador_de_imágenes',
+        ],
+    },
 
 )
