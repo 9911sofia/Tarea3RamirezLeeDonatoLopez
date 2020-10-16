@@ -23,7 +23,7 @@ def frecuencia_palabras(filepath):
             else:
                 d[word] = 1  # Si no está, agrega la palabra y el #1 al diccionario
 
-    file2 = open("Resultados.txt", "w")  # Se abre el txt de resultados para escribir dentro de él
+    file2 = open("Resultados.txt", "w+")  # Se abre el txt de resultados para escribir dentro de él
     for key in list(d.keys()):  # El key accede a los elementos y su cantidad en el diccionario creado
         table.append(tuple((key, d[key])))  # Ingresa cada palabra y su cantidad a la lista
     # Los resultados se escriben en el archivo de texto de resultados
